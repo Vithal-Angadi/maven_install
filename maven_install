@@ -1,1 +1,15 @@
+#!/bin/bash
+echo "STEP1: update ubuntu & install- 'unzip' and 'openjdk-17-jdk'"
+sudo apt update -y && sudo apt install -y unzip openjdk-17-jdk
 
+echo
+echo "STEP2: downloas maven-3.9.6.zip & unzip it"
+wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip && unzip apache-maven-3.9.6-bin.zip
+
+echo
+echo "STEP3: create a symbolic[soft] link of mvn binary in $PATH (load the command) "
+sudo ln -s /home/ubuntu/apache-maven-3.9.6/bin/mvn /usr/local/sbin/mvn
+sudo chmod 777 /usr/local/sbin/mvn
+
+echo
+echo "________________maven installed________________"
